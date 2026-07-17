@@ -1,0 +1,2 @@
+# Keep non-runtime files out of skill scans.
+scripts/__pycache__

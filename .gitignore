@@ -1,0 +1,7 @@
+# Local env files with API keys
+.env
+*.env
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
