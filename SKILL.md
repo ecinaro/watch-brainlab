@@ -3,7 +3,7 @@ name: watch-brainlab
 version: "1.0.0"
 description: Watch a video (URL or local path). Downloads with yt-dlp, extracts auto-scaled frames with ffmpeg, pulls the transcript from captions (or Whisper API fallback), and outputs a structured report with frame paths and timestamped transcript for the agent to analyze.
 argument-hint: "<video-url-or-path> [question]"
-author: brainlab
+author: ecinaro
 license: MIT
 user-invocable: true
 ---
