@@ -46,16 +46,28 @@ python "${SKILL_DIR}/scripts/setup.py"
 
 macOS'ta brew ile otomatik kurulur. Windows/Linux'ta kurulum komutlarını ekrana basar.
 
-Whisper anahtarı opsiyoneldir — yoksa altyazısı olmayan videolar sadece frame ile gelir.
+### Whisper API Anahtarı İsteme & Yapılandırma Rehberi (Agent Talimatı)
 
-Anahtar ayarlamak için `~/.config/brainwatch/.env` dosyasına yaz:
-```
-GROQ_API_KEY=...
-```
-veya
-```
-OPENAI_API_KEY=...
-```
+`has_api_key: false` ise veya ilk çalıştırmada (`first_run: true`), **Agent kullanıcıya Whisper API anahtarını sormalı ve yönlendirmelidir:**
+
+1. **Kullanıcıya Açıkla:**
+   * Altyazısı olmayan videoların (Instagram Reels, TikTok, yerel video dosyaları vb.) seslerini metne dönüştürmek için bir Whisper API anahtarı önerilir.
+   * **Ücretsiz / Hızlı Seçenek (Önerilen):** [Groq Console](https://console.groq.com/keys) adresinden anında ücretsiz bir `GROQ_API_KEY` alınabilir.
+   * **Alternatif:** [OpenAI API Keys](https://platform.openai.com/api-keys) adresinden `OPENAI_API_KEY` kullanılabilir.
+
+2. **Kullanıcı Anahtarı Sağlarsa:**
+   Agent anahtarı doğrudan `~/.config/brainwatch/.env` dosyasına yazar:
+   ```env
+   GROQ_API_KEY=gsk_...
+   ```
+   veya
+   ```env
+   OPENAI_API_KEY=sk-...
+   ```
+   Ardından `SETUP_COMPLETE=true` ekler.
+
+3. **Kullanıcı Anahtar Vermek İstemezse:**
+   Anahtar zorunlu değildir. Kullanıcı vermek istemezse veya atlarsa `.env` dosyasına `SETUP_COMPLETE=true` yazılır ve bir daha sorulmaz. Altyazısı olmayan videolar sadece görüntü kareleri (frames-only) ile analiz edilir.
 
 Kullanıcıya bir kere detail tercihi sor:
 - `transcript` — sadece transkript, frame yok
